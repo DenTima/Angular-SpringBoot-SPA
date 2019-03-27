@@ -1,0 +1,27 @@
+<h1 class="title-page">Details Department</h1>
+<div class="form-page">
+  <form [formGroup]="form" [hidden]="submitted">
+    <mat-form-field>
+      <input matInput placeholder="DepName" formControlName="depName">
+    </mat-form-field>
+
+    <div class="form-button">
+      <button mat-raised-button
+              [disabled]="form.invalid || !isSubmitButtonActive"
+              (click)="save()">Submit
+      </button>
+      <button mat-raised-button
+              (click)="cancel()">Cancel
+      </button>
+    </div>
+  </form>
+
+  <div [hidden]="!submitted">
+      <h4>You updated successfully!</h4>
+      <button
+        mat-raised-button
+        (click)="cancel()">Go to Department Page
+      </button>
+    </div>
+
+</div>

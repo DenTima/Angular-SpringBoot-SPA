@@ -1,0 +1,39 @@
+<h1 class="title-page">Details Employee</h1>
+<div class="form-page">
+  <form [formGroup]="form" [hidden]="submitted">
+    <mat-form-field>
+      <input matInput placeholder="EmpName" formControlName="empName">
+    </mat-form-field>
+
+    <mat-checkbox
+      formControlName="empActive">EmpActive
+    </mat-checkbox>
+
+    <mat-form-field>
+      <select matNativeControl placeholder="EmpDepartment" formControlName="empDepartment" required>
+        <option value="HR">HRasdasd</option>
+        <option value="Tech">Tech</option>
+        <option value="Finance">Finance</option>
+      </select>
+    </mat-form-field>
+
+    <div class="form-button">
+      <button mat-raised-button
+              [disabled]="form.invalid || !isSubmitButtonActive"
+              (click)="save()">Submit
+      </button>
+      <button mat-raised-button
+              (click)="cancel()">Cancel
+      </button>
+    </div>
+  </form>
+
+  <div [hidden]="!submitted">
+      <h4>You updated successfully!</h4>
+      <button
+        mat-raised-button
+        (click)="cancel()">Go to Employee Page
+      </button>
+    </div>
+
+</div>

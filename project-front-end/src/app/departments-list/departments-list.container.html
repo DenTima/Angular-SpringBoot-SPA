@@ -1,0 +1,14 @@
+<h1 class="title-page">Departments</h1>
+
+<div *ngIf="departments | async as departmentsAsync; else loading">
+
+  <departments-table
+    [departments]="departmentsAsync"
+    (onDeleteDepartmentClick)="deleteDepartment($event)"
+    (onViewDepartmentClick)="viewDepartment($event)">
+  </departments-table>
+</div>
+
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>

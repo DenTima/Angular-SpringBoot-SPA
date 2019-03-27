@@ -1,0 +1,14 @@
+<h1 class="title-page">Employees</h1>
+
+<div *ngIf="employees | async as employeesAsync; else loading">
+
+  <employees-table
+    [employees]="employeesAsync"
+    (onDeleteEmployeeClick)="deleteEmployee($event)"
+    (onViewEmployeeClick)="viewEmployee($event)">
+  </employees-table>
+</div>
+
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>

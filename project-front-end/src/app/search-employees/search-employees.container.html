@@ -1,0 +1,40 @@
+<h1 class="title-page">Find By Name</h1>
+
+<div class="form-page">
+  <form [formGroup]="form" [hidden]="submitted">
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="EmpName"
+        formControlName="empName" required>
+    </mat-form-field>
+
+    <div class="form-button">
+
+      <button
+        mat-raised-button
+        [disabled]="form.invalid"
+        (click)="save()">Submit
+      </button>
+
+      <button
+        mat-raised-button
+        (click)="cancel()">Cancel
+      </button>
+
+    </div>
+  </form>
+
+  <ng-container *ngIf="employees; else noEmployees">
+    <employees-table
+      [employees]="employees"
+      (onDeleteEmployeeClick)="deleteEmployee($event)"
+      (onViewEmployeeClick)="viewEmployee($event)">
+    </employees-table>
+  </ng-container>
+
+  <ng-template #noEmployees>
+    <span>Not found employees </span>
+  </ng-template>
+</div>

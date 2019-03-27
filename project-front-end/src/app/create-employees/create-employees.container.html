@@ -1,0 +1,40 @@
+<h1 class="title-page">Create Employee</h1>
+<div class="form-page">
+  <form [formGroup]="form" [hidden]="submitted">
+    <mat-form-field>
+      <input matInput placeholder="EmpName" formControlName="empName">
+    </mat-form-field>
+
+    <mat-checkbox
+      formControlName="empActive">EmpActive
+    </mat-checkbox>
+
+    <mat-form-field>
+      <mat-select
+        placeholder="EmpDepartment"
+        formControlName="empDepartment">
+        <mat-option *ngFor="let department of departments" [value]="department">{{department.depName}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      [disabled]="form.invalid"
+      (click)="save()">Submit
+    </button>
+
+    <button
+      mat-raised-button
+      (click)="cancel()">Cancel
+    </button>
+  </form>
+
+  <div [hidden]="!submitted">
+    <h4>You submitted successfully!</h4>
+    <button
+      mat-raised-button
+      (click)="newEmployee()">Add More Employee
+    </button>
+  </div>
+
+</div>

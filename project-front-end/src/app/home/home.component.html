@@ -1,0 +1,15 @@
+<h2>
+  This is home page. 
+</h2>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+
+    <ul class="nav navbar-nav navbar-right">
+      <p class="navbar-text" *ngIf="isAdminUser">You are admin!</p>
+      <p class="navbar-text" *ngIf="isUser">You are user!</p>
+
+    </ul>
+  </div>
+</nav>

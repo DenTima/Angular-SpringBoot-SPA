@@ -1,0 +1,37 @@
+<mat-toolbar>
+  <span>{{title}}</span>
+  <span class="example-spacer">
+
+      <nav class="header-nav">
+        <a
+          mat-button
+          routerLink="employees"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLinkActive="active">Employees</a>
+        <a
+          mat-button
+          routerLink="departments"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLinkActive="active">Departments</a>
+        <a
+          mat-button
+          routerLink="employees/add"
+          routerLinkActive="active">Add Employee</a>
+        <a
+          mat-button
+          routerLink="departments/add"
+          routerLinkActive="active">Add Department</a>
+        <a
+          mat-button
+          routerLink="findbyname"
+          routerLinkActive="active">Search</a>
+          <button class="btn navbar-btn" (click)="logout()">Logout</button>
+      </nav>
+  </span>
+
+</mat-toolbar>
+
+
+<div class="content-page">
+    <router-outlet></router-outlet>
+</div>
